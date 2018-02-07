@@ -28,6 +28,11 @@ abstract class Endpoint{
         $curl = curl_init();
 
         $finalUrl = $this->url;
+        
+        $if ($finalUrl[strlen($finalUrl) - 1] !== "/") {
+            $finalUrl .= "/";
+        }
+        
         $curlHeaders = [
                 'Content-Type: '.$this->contentType,
                 'Content-Length: ' . strlen($input),
